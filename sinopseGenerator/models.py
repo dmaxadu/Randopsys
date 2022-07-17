@@ -1,0 +1,26 @@
+from django.db import models
+
+class Movie(models.Model):
+    vector = models.CharField(max_length=1000)
+    Action = models.IntegerField(blank=True, null=True)
+    Adventure = models.IntegerField(blank=True, null=True)
+    Animation = models.IntegerField(blank=True, null=True)
+    Comedy = models.IntegerField(blank=True, null=True)
+    Crime = models.IntegerField(blank=True, null=True)
+    Documentary = models.IntegerField(blank=True, null=True)
+    Drama = models.IntegerField(blank=True, null=True)
+    Family = models.IntegerField(blank=True, null=True)
+    Fantasy = models.IntegerField(blank=True, null=True)
+    History = models.IntegerField(blank=True, null=True)
+    Horror = models.IntegerField(blank=True, null=True)
+    Music = models.IntegerField(blank=True, null=True)
+    Mystery = models.IntegerField(blank=True, null=True)
+    Romance = models.IntegerField(blank=True, null=True)
+    Science_Fiction = models.IntegerField(blank=True, null=True)
+    Thriller = models.IntegerField(blank=True, null=True)
+    TvMovie = models.IntegerField(blank=True, null=True)
+    War = models.IntegerField(blank=True, null=True)
+    Western = models.IntegerField(blank=True, null=True)
+    checkbox = models.BooleanField()
+
+    sinopse = models.CharField(max_length=1000)

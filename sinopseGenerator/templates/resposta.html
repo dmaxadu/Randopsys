@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <title>Randopsys</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap%27');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background: rgb(0,0,0);
+            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(20,20,20,1) 50%, rgba(0,0,0,1) 100%);
+        }
+        .sinopse_container {
+            background-color: rgb(58, 58, 58);
+            border-radius: 10px;
+            transition: 1s all ease;
+            padding-bottom: 20px;
+            width: 50vw;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .sinopse_container:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.52);
+        }
+        .text_container {
+            width: 40vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .button {
+            margin-bottom: -10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: white;
+            background-color: #2b2b2b;
+            width: 80px;
+            height: 30px;
+            border: none;
+            border-radius: 10px;
+            transition: 0.8s all ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover{
+            transform: scale(1.03);
+            background-color: #790000;
+        }
+
+        .cabecalho {
+            margin-bottom: 50px;
+        }
+
+        .sinopse_container {
+            font-family: 'Poppins', sans-serif;
+            color: whitesmoke;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .img {
+            transition: 0.8s all ease;
+        }
+
+        .img:hover {
+            transform: scale(1.08);
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="espaco">
+        <header id="topo" class="cabecalho">
+            <a href=""><img class="img" src="https://cdn.discordapp.com/attachments/980959174622056551/998007720038895686/RANDOPSYS.png" alt="Randopsys"></a>
+        </header>
+    </div>
+        <div class="sinopse_container">
+            <div class="text_container">
+                <h3 class="sinopse">{{texto}}</h3>
+            </div>
+            {% if image %}
+            <img src="{{ href}}" alt="">
+            {% endif %}
+            <a class="button" href="{% url 'index' %}">Home</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/980959174622056551/998014708131045486/favicon-32x32.png">
+    <title>Randopsys</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap%27');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background: rgb(0,0,0);
+            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(20,20,20,1) 50%, rgba(0,0,0,1) 100%);
+        }
+        form {
+            background-color: rgb(58, 58, 58);
+            border-radius: 10px;
+            transition: 1s all ease;
+            padding-bottom: 20px;
+        }
+
+        form:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.52);
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            height: 50vh;
+            width: 50vw;
+            transition: 1s all ease;
+        }
+    
+        .menu_item {
+            font-family: 'Poppins', sans-serif;
+            width: 33%;
+            height: 15%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu_item_title {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 5px;
+            color: whitesmoke;
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 30px;
+            color: whitesmoke;
+            font-weight: 500;
+            text-align: center;
+            padding: 10px;
+            transition: 1s all ease;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+        }
+
+        button {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: white;
+            background-color: #2b2b2b;
+            width: 80px;
+            height: 30px;
+            border: none;
+            border-radius: 10px;
+            transition: 0.8s all ease;
+        }
+
+        button:hover{
+            transform: scale(1.03);
+            background-color: #790000;
+        }
+
+        .cabecalho {
+            margin-bottom: 50px;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 70%;
+            height: 8px;
+            border-radius: 5px;  
+            background: #6d6d6d;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%; 
+            background: #E50913;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #E50913;
+            cursor: pointer;
+        }
+
+        .img {
+            transition: 0.8s all ease;
+        }
+
+        .img:hover {
+            transform: scale(1.08);
+        }
+
+        .alert {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .hide {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-size: 12px;
+            color: whitesmoke;
+            margin-left: 3px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="espaco">
+        <header id="topo" class="cabecalho">
+            <a href=""><img class="img" src="https://cdn.discordapp.com/attachments/980959174622056551/998007720038895686/RANDOPSYS.png" alt="Randopsys"></a>
+        </header>
+    </div>
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <h3 class="title_page">How much of each category do you want?</h3>
+        <div class="menu">
+            <div class="menu_item">
+                <h5 class="menu_item_title">Action</h5>
+                <input type="range" class="slider" name="{{ form.Action.name}}" value="{{form.Action.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Adventure</h5>
+                <input type="range" class="slider" name="{{ form.Adventure.name}}" value="{{form.Adventure.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Animation</h5>
+                <input type="range" class="slider" name="{{ form.Animation.name}}" value="{{form.Animation.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Comedy</h5>
+                <input type="range" class="slider" name="{{ form.Comedy.name}}" value="{{form.Comedy.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Crime</h5>
+                <input type="range" class="slider" name="{{ form.Crime.name}}" value="{{form.Crime.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Documentary</h5>
+                <input type="range" class="slider" name="{{ form.Documentary.name}}" value="{{form.Documentary.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Drama</h5>
+                <input type="range" class="slider" name="{{ form.Drama.name}}" value="{{form.Drama.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Family</h5>
+                <input type="range" class="slider" name="{{ form.Family.name}}" value="{{form.Family.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Fantasy</h5>
+                <input type="range" class="slider" name="{{ form.Fantasy.name}}" value="{{form.Fantasy.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">History</h5>
+                <input type="range" class="slider" name="{{ form.History.name}}" value="{{form.History.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Horror</h5>
+                <input type="range" class="slider" name="{{ form.Horror.name}}" value="{{form.Horror.value|default_if_none:''}}" min="0" max="100">      
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Music</h5>
+                <input type="range" class="slider" name="{{ form.Music.name}}" value="{{form.Music.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Mystery</h5>
+                <input type="range" class="slider" name="{{ form.Mystery.name}}" value="{{form.Mystery.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Romance</h5>
+                <input type="range" class="slider" name="{{ form.Romance.name}}" value="{{form.Romance.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Science Fiction</h5>
+                <input type="range" class="slider" name="{{ form.Science_Fiction.name}}" value="{{form.Science_Fiction.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">Thriller</h5>
+                <input type="range" class="slider" name="{{ form.Thriller.name}}" value="{{form.Thriller.value|default_if_none:''}}" min="0" max="100">
+            </div> 
+            <div class="menu_item">
+                <h5 class="menu_item_title">Tv Movie</h5>
+                <input type="range" class="slider" name="{{ form.TvMovie.name}}" value="{{form.TvMovie.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div class="menu_item">
+                <h5 class="menu_item_title">War</h5>
+                <input type="range" class="slider" name="{{ form.War.name}}" value="{{form.War.value|default_if_none:''}}" min="0" max="100">
+            </div>
+            <div>
+                <h5 class="menu_item_title">Random Image?</h5>
+                <div class="alert">
+                    <input id="check" type="checkbox" name="{{ form.checkbox.name}}">
+                    <div class="hide">This will take 3 minutes to show the result!</div>
+                </div>
+            </div>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</body>
+</html>
